@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TruePresence | Anti-Ghost School Integrity Engine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50 px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+    <div class="flex items-center gap-3">
+      <div class="bg-emerald-500 text-slate-950 p-2.5 rounded-xl font-black text-xl shadow-lg shadow-emerald-500/20">
+        <i class="fa-solid fa-school-circle-check"></i>
+      </div>
+      <div>
+        <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+          TruePresence <span class="text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-medium">Khairpur Pilot</span>
+        </h1>
+        <p class="text-xs text-slate-400">Autonomous Anti-Ghost School Verification & Cluster Budget Protection System</p>
+      </div>
+    </div>
+    
+    <!-- Tab Controls -->
+    <div class="flex bg-slate-900 border border-slate-800 p-1 rounded-xl gap-1 text-sm font-medium">
+      <button onclick="switchTab('mobile-view')" id="btn-mobile" class="tab-btn px-4 py-2 rounded-lg bg-emerald-600 text-white transition flex items-center gap-2">
+        <i class="fa-solid fa-mobile-screen"></i> <span>Inspector App</span>
+      </button>
+      <button onclick="switchTab('dashboard-view')" id="btn-dashboard" class="tab-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white transition flex items-center gap-2">
+        <i class="fa-solid fa-chart-line"></i> <span>District HQ Matrix</span>
+      </button>
+      <button onclick="switchTab('rebalance-view')" id="btn-rebalance" class="tab-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white transition flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved"></i> <span>Cluster Rebalancer</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Body -->
+  <main class="flex-1 p-6 max-w-7xl mx-auto w-full">
+
+    <!-- VIEW 1: FIELD INSPECTOR APP -->
+    <section id="mobile-view" class="tab-content block">
+      <div class="max-w-md mx-auto bg-slate-950 border-4 border-slate-800 rounded-[2.5rem] p-4 shadow-2xl relative">
+        <div class="w-32 h-4 bg-slate-800 rounded-full mx-auto mb-4 flex items-center justify-center">
+          <div class="w-3 h-3 bg-slate-900 rounded-full mr-2"></div>
+          <div class="w-8 h-1 bg-slate-700 rounded-full"></div>
+        </div>
+
+        <div class="p-2 space-y-4">
+          <div class="flex justify-between items-center text-xs text-slate-400 border-b border-slate-800 pb-2">
+            <span><i class="fa-solid fa-satellite text-emerald-400 mr-1"></i> Blind Geofence Active</span>
+            <span class="bg-slate-800 px-2 py-0.5 rounded text-[10px] text-slate-300">Offline-Ready Queue</span>
+          </div>
+
+          <!-- Target Box -->
+          <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl space-y-3">
+            <div class="text-xs uppercase tracking-wider text-emerald-400 font-semibold flex items-center gap-1.5">
+              <i class="fa-solid fa-compass"></i> Assigned Blind Target
+            </div>
+            
+            <div id="target-locked-state">
+              <p class="text-xs text-slate-400 mb-2">Advance collusion leaks rokne ke liye details lock hain.</p>
+              <div class="p-3 bg-slate-950 border border-dashed border-slate-700 rounded-xl text-center">
+                <i class="fa-solid fa-lock text-slate-500 text-lg mb-1"></i>
+                <div class="text-xs text-slate-400 font-mono">Location: [ENCRYPTED TARGET GEOFENCE]</div>
+                <div class="text-[11px] text-amber-400 mt-1">Sirf 500m proximity ke andar unlock hoga</div>
+              </div>
+              <button onclick="unlockTarget()" class="mt-3 w-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium py-2 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+                <i class="fa-solid fa-location-crosshairs"></i> Simulate GPS Arrival (< 500m)
+              </button>
+            </div>
+
+            <div id="target-unlocked-state" class="hidden space-y-2">
+              <div class="p-3 bg-emerald-950/40 border border-emerald-500/40 rounded-xl">
+                <div class="text-[11px] text-emerald-400 font-bold uppercase">Target Unlocked</div>
+                <div class="text-sm font-bold text-white">GBPS Mir Ali Murad Khan</div>
+                <div class="text-xs text-slate-400">Taluka: Kot Diji | Enrolled: 145 Students</div>
+              </div>
+
+              <div class="bg-slate-950 border border-slate-800 p-2.5 rounded-xl flex items-center gap-2.5 text-xs text-emerald-300">
+                <i class="fa-solid fa-wallet text-base text-emerald-400"></i>
+                <div>
+                  <div class="font-bold text-[11px]">Direct TA/DA Disbursed</div>
+                  <div class="text-[10px] text-slate-400">PKR 2,500 direct mobile wallet par bhej diye gaye hain</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inspection Submission -->
+          <div id="audit-form" class="bg-slate-900 border border-slate-800 p-4 rounded-2xl space-y-3 opacity-50 pointer-events-none transition">
+            <div class="text-xs uppercase tracking-wider text-slate-300 font-semibold flex items-center gap-1.5">
+              <i class="fa-solid fa-clipboard-check"></i> Field Headcount Proof
+            </div>
+
+            <div>
+              <label class="text-xs text-slate-400 block mb-1">Classroom mein mojood bache:</label>
+              <input type="number" id="observed-count" value="6" min="0" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+            </div>
+
+            <div>
+              <label class="text-xs text-slate-400 block mb-1">Teacher Presence Status:</label>
+              <select id="teacher-status" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                <option value="Absent">Appointed Teacher Absent</option>
+                <option value="Proxy">Proxy / Relative Present</option>
+                <option value="Present">Appointed Teacher Present</option>
+              </select>
+            </div>
+
+            <button onclick="submitAudit()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-lg shadow-blue-600/20">
+              <i class="fa-solid fa-fingerprint"></i> Sign Cryptographic Proof
+            </button>
+            <div id="receipt-box" class="hidden text-[10px] bg-slate-950 border border-slate-800 p-2 rounded-lg font-mono text-emerald-400 break-all"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: DISTRICT HQ MATRIX -->
+    <section id="dashboard-view" class="tab-content hidden space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl">
+          <div class="text-xs text-slate-400 uppercase tracking-wider">Reported Enrollment</div>
+          <div class="text-2xl font-black text-white mt-1">420</div>
+          <div class="text-xs text-slate-500 mt-0.5">Khairpur Pilot Cluster</div>
+        </div>
+        <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl">
+          <div class="text-xs text-slate-400 uppercase tracking-wider">Flagged Ghost Schools</div>
+          <div class="text-2xl font-black text-rose-500 mt-1">2 / 3</div>
+          <div class="text-xs text-rose-400/80 mt-0.5">Supply/Telecom discrepancy</div>
+        </div>
+        <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl">
+          <div class="text-xs text-slate-400 uppercase tracking-wider">Monitored District Budget</div>
+          <div class="text-2xl font-black text-emerald-400 mt-1">PKR 5.45M</div>
+          <div class="text-xs text-emerald-400/80 mt-0.5">100% Protected (No budget cuts)</div>
+        </div>
+        <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl">
+          <div class="text-xs text-slate-400 uppercase tracking-wider">Transit Subsidies</div>
+          <div class="text-2xl font-black text-blue-400 mt-1">32 Vouchers</div>
+          <div class="text-xs text-blue-400/80 mt-0.5">Solar rickshaws active for kids</div>
+        </div>
+      </div>
+
+      <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 overflow-x-auto">
+        <h3 class="text-base font-bold text-white mb-1 flex items-center gap-2">
+          <i class="fa-solid fa-table-cells text-emerald-400"></i> 3-Vector Cross-Validation Matrix
+        </h3>
+        <p class="text-xs text-slate-400 mb-4">Paper register, food supply logs aur tower signal density ka automated muqabla.</p>
+
+        <table class="w-full text-left text-xs">
+          <thead class="border-b border-slate-800 text-slate-400 uppercase font-semibold">
+            <tr>
+              <th class="py-2.5 px-3">School Name / ID</th>
+              <th class="py-2.5 px-3">Taluka</th>
+              <th class="py-2.5 px-3">Paper Headcount</th>
+              <th class="py-2.5 px-3">Food Rations Used</th>
+              <th class="py-2.5 px-3">Tower SIM Pings</th>
+              <th class="py-2.5 px-3">Integrity Score</th>
+              <th class="py-2.5 px-3">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 font-mono">
+            <tr class="hover:bg-slate-900/50">
+              <td class="py-3 px-3 font-sans font-medium text-white">GBPS Mir Ali Murad Khan <span class="text-[10px] text-slate-400 block font-mono">KHP-0104</span></td>
+              <td class="py-3 px-3 font-sans">Kot Diji</td>
+              <td class="py-3 px-3 text-amber-400">145</td>
+              <td class="py-3 px-3 text-rose-400">22 (Deficit)</td>
+              <td class="py-3 px-3 text-rose-400">8 (Near-zero)</td>
+              <td class="py-3 px-3 font-bold text-rose-400">30 / 100</td>
+              <td class="py-3 px-3 font-sans"><span class="bg-rose-500/20 text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded-full text-[10px]">Ghost Suspect</span></td>
+            </tr>
+            <tr class="hover:bg-slate-900/50">
+              <td class="py-3 px-3 font-sans font-medium text-white">GGPS Gambat Main <span class="text-[10px] text-slate-400 block font-mono">KHP-0209</span></td>
+              <td class="py-3 px-3 font-sans">Gambat</td>
+              <td class="py-3 px-3 text-white">180</td>
+              <td class="py-3 px-3 text-emerald-400">172</td>
+              <td class="py-3 px-3 text-emerald-400">165</td>
+              <td class="py-3 px-3 font-bold text-emerald-400">95 / 100</td>
+              <td class="py-3 px-3 font-sans"><span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full text-[10px]">Operational</span></td>
+            </tr>
+            <tr class="hover:bg-slate-900/50">
+              <td class="py-3 px-3 font-sans font-medium text-white">GBPS Piryaloi Rural <span class="text-[10px] text-slate-400 block font-mono">KHP-0312</span></td>
+              <td class="py-3 px-3 font-sans">Kingri</td>
+              <td class="py-3 px-3 text-amber-400">95</td>
+              <td class="py-3 px-3 text-rose-400">14 (Deficit)</td>
+              <td class="py-3 px-3 text-rose-400">5 (Near-zero)</td>
+              <td class="py-3 px-3 font-bold text-rose-400">30 / 100</td>
+              <td class="py-3 px-3 font-sans"><span class="bg-rose-500/20 text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded-full text-[10px]">Ghost Suspect</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- VIEW 3: CLUSTER REBALANCER -->
+    <section id="rebalance-view" class="tab-content hidden space-y-6">
+      <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl space-y-4">
+        <div class="border-b border-slate-800 pb-3">
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-shield-halved text-emerald-400"></i> Cluster Safe-Harbor Funding Rebalance
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">
+            "Agar district office sach bata de, toh honest schools ka ek rupiya bhi kam nahi hoga."
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-3 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+            <div class="text-xs font-semibold text-rose-400 uppercase">Detected Ghost Facility</div>
+            <div class="text-base font-bold text-white">GBPS Mir Ali Murad Khan (Kot Diji)</div>
+            <div class="text-xs text-slate-400">Recovered Budget: <span class="text-white font-mono font-bold">PKR 1,850,000</span></div>
+            <div class="text-xs text-slate-400">Actual Active Students: <span class="text-rose-400 font-mono font-bold">6 Students</span></div>
+            <button onclick="triggerRebalance()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+              <i class="fa-solid fa-arrows-rotate"></i> Reallocate Funds Locally
+            </button>
+          </div>
+
+          <div class="space-y-3 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+            <div class="text-xs font-semibold text-emerald-400 uppercase">Cluster Reallocation Breakdown</div>
+            <div id="rebalance-results" class="space-y-2 text-xs">
+              <div class="flex justify-between items-center p-2 bg-slate-950 rounded-lg">
+                <span class="text-slate-300">🚐 Student Solar Rickshaw Transit:</span>
+                <span class="font-mono text-emerald-400 font-bold">PKR 750,000</span>
+              </div>
+              <div class="flex justify-between items-center p-2 bg-slate-950 rounded-lg">
+                <span class="text-slate-300">📚 Neighboring Functional School Boost:</span>
+                <span class="font-mono text-emerald-400 font-bold">PKR 650,000</span>
+              </div>
+              <div class="flex justify-between items-center p-2 bg-slate-950 rounded-lg">
+                <span class="text-slate-300">🏗️ Union Council Facility Maintenance:</span>
+                <span class="font-mono text-emerald-400 font-bold">PKR 450,000</span>
+              </div>
+              <div class="p-2.5 bg-emerald-950/40 border border-emerald-500/40 rounded-lg text-emerald-300 font-bold flex justify-between">
+                <span>Net District Budget Loss:</span>
+                <span>PKR 0.00 (100% Retained)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-800 p-4 text-center text-xs text-slate-500">
+    TruePresence | Sukkur IBA IET TechFest Hackathon 2026
+  </footer>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById(tabId).classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-emerald-600', 'text-white');
+        btn.classList.add('text-slate-400');
+      });
+
+      if(tabId === 'mobile-view') document.getElementById('btn-mobile').classList.add('bg-emerald-600', 'text-white');
+      if(tabId === 'dashboard-view') document.getElementById('btn-dashboard').classList.add('bg-emerald-600', 'text-white');
+      if(tabId === 'rebalance-view') document.getElementById('btn-rebalance').classList.add('bg-emerald-600', 'text-white');
+    }
+
+    function unlockTarget() {
+      document.getElementById('target-locked-state').classList.add('hidden');
+      document.getElementById('target-unlocked-state').classList.remove('hidden');
+      const form = document.getElementById('audit-form');
+      form.classList.remove('opacity-50', 'pointer-events-none');
+    }
+
+    function submitAudit() {
+      const count = document.getElementById('observed-count').value;
+      const status = document.getElementById('teacher-status').value;
+      const hash = '0x' + Math.random().toString(16).substring(2, 10) + Math.random().toString(16).substring(2, 10);
+      
+      const receipt = document.getElementById('receipt-box');
+      receipt.classList.remove('hidden');
+      receipt.innerHTML = `<strong>Tamper-Proof Receipt Generated:</strong><br>Hash: ${hash}<br>Observed: ${count} | Teacher: ${status}`;
+    }
+
+    function triggerRebalance() {
+      alert("Cluster Protection Order Executed: PKR 1.85M retained within Union Council!");
+    }
+  </script>
+</body>
+</html>
